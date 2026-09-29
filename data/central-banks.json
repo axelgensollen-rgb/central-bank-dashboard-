@@ -1,69 +1,14 @@
 {
-  "source": "Central Bank Watch",
-  "source_url": "https://centralbank.watch/",
+  "source": "Hybrid primary-market sources",
   "updated_at": "2026-09-29",
   "banks": {
-    "FED": {
-      "rate": 3.88,
-      "next": "2026-10-28",
-      "up": 67.6,
-      "hold": 32.4,
-      "down": 0.0,
-      "curve": [
-        {"date":"2026-10-28","rate":4.04},{"date":"2026-12-09","rate":4.25},{"date":"2027-01-27","rate":4.40},{"date":"2027-03-17","rate":4.57},{"date":"2027-04-28","rate":4.67},{"date":"2027-06-09","rate":4.77},{"date":"2027-07-28","rate":4.81},{"date":"2027-09-15","rate":4.85},{"date":"2027-10-27","rate":4.83}
-      ]
-    },
-    "BCE": {
-      "rate": 2.50,
-      "next": "2026-10-29",
-      "up": 30.7,
-      "hold": 69.3,
-      "down": 0.0,
-      "curve": [
-        {"date":"2026-10-29","rate":2.58},{"date":"2026-12-17","rate":2.80},{"date":"2027-02-04","rate":2.97},{"date":"2027-03-18","rate":3.26},{"date":"2027-04-29","rate":3.22},{"date":"2027-06-10","rate":3.31},{"date":"2027-07-22","rate":3.45}
-      ]
-    },
-    "BoE": {
-      "rate": 3.75,
-      "next": "2026-11-05",
-      "up": 89.8,
-      "hold": 10.2,
-      "down": 0.0,
-      "curve": [
-        {"date":"2026-11-05","rate":3.97},{"date":"2026-12-17","rate":4.15},{"date":"2027-02-04","rate":4.36},{"date":"2027-03-18","rate":4.53},{"date":"2027-04-29","rate":4.68},{"date":"2027-06-17","rate":4.78},{"date":"2027-07-29","rate":4.84}
-      ]
-    },
-    "BoJ": {
-      "rate": 1.25,
-      "next": "2026-10-28",
-      "up": 100.0,
-      "hold": 0.0,
-      "down": 0.0,
-      "curve": [
-        {"date":"2026-10-28","rate":1.74},{"date":"2026-12-17","rate":1.74},{"date":"2027-01-19","rate":1.79},{"date":"2027-03-16","rate":2.00},{"date":"2027-04-28","rate":2.00},{"date":"2027-06-15","rate":2.00},{"date":"2027-07-29","rate":2.32}
-      ]
-    },
-    "BoC": {"rate":5.25,"next":null,"up":null,"hold":null,"down":null,"curve":[]},
-    "RBA": {
-      "rate": 4.35,
-      "next": "2026-11-03",
-      "up": 100.0,
-      "hold": 0.0,
-      "down": 0.0,
-      "curve": [
-        {"date":"2026-11-03","rate":4.60},{"date":"2026-12-08","rate":4.60}
-      ]
-    },
-    "BNS": {
-      "rate": 0.00,
-      "next": "2026-12-10",
-      "up": 39.9,
-      "hold": 60.1,
-      "down": 0.0,
-      "curve": [
-        {"date":"2026-12-10","rate":0.10},{"date":"2027-03-18","rate":0.32},{"date":"2027-06-24","rate":0.57},{"date":"2027-09-23","rate":0.75},{"date":"2027-12-16","rate":0.85}
-      ]
-    },
-    "RBNZ": {"rate":2.75,"next":"2026-10-28","up":null,"hold":null,"down":null,"curve":[]}
+    "FED": {"rate":3.875,"next":"2026-10-28","up":67.6,"hold":32.4,"down":0.0,"official_source":"Federal Reserve","market_source":"CME FedWatch","curve":[{"date":"2026-10-28","rate":4.04},{"date":"2026-12-09","rate":4.25},{"date":"2027-01-27","rate":4.40},{"date":"2027-03-17","rate":4.57},{"date":"2027-04-28","rate":4.67},{"date":"2027-06-09","rate":4.77},{"date":"2027-07-28","rate":4.81},{"date":"2027-09-15","rate":4.85},{"date":"2027-10-27","rate":4.83}]},
+    "BCE": {"rate":2.50,"next":"2026-10-29","up":30.7,"hold":69.3,"down":0.0,"official_source":"ECB","market_source":"CME €STRWatch","curve":[{"date":"2026-10-29","rate":2.58},{"date":"2026-12-17","rate":2.80},{"date":"2027-02-04","rate":2.97},{"date":"2027-03-18","rate":3.26},{"date":"2027-04-29","rate":3.22},{"date":"2027-06-10","rate":3.31},{"date":"2027-07-22","rate":3.45}]},
+    "BoE": {"rate":3.75,"next":"2026-11-05","up":89.8,"hold":10.2,"down":0.0,"official_source":"Bank of England","market_source":"ICE SONIA futures","curve":[{"date":"2026-11-05","rate":3.97},{"date":"2026-12-17","rate":4.15},{"date":"2027-02-04","rate":4.36},{"date":"2027-03-18","rate":4.53},{"date":"2027-04-29","rate":4.68},{"date":"2027-06-17","rate":4.78},{"date":"2027-07-29","rate":4.84}]},
+    "BoJ": {"rate":1.25,"next":"2026-10-30","up":100.0,"hold":0.0,"down":0.0,"official_source":"Bank of Japan","market_source":"JPX / 3M TONA futures","curve":[{"date":"2026-10-30","rate":1.74},{"date":"2026-12-18","rate":1.74},{"date":"2027-01-22","rate":1.79},{"date":"2027-03-18","rate":2.00},{"date":"2027-04-28","rate":2.00},{"date":"2027-06-15","rate":2.00},{"date":"2027-07-29","rate":2.32}]},
+    "BoC": {"rate":2.25,"next":"2026-10-28","up":null,"hold":null,"down":null,"official_source":"Bank of Canada","market_source":"TMX / CORRA futures","curve":[]},
+    "RBA": {"rate":4.60,"next":"2026-11-03","up":100.0,"hold":0.0,"down":0.0,"official_source":"Reserve Bank of Australia","market_source":"ASX 30-Day Interbank Cash Rate futures","curve":[{"date":"2026-11-03","rate":4.60},{"date":"2026-12-08","rate":4.60}]},
+    "BNS": {"rate":0.00,"next":"2026-12-10","up":39.9,"hold":60.1,"down":0.0,"official_source":"Swiss National Bank","market_source":"SARON / Swiss OIS","curve":[{"date":"2026-12-10","rate":0.10},{"date":"2027-03-18","rate":0.32},{"date":"2027-06-24","rate":0.57},{"date":"2027-09-23","rate":0.75},{"date":"2027-12-16","rate":0.85}]},
+    "RBNZ": {"rate":2.75,"next":"2026-10-28","up":null,"hold":null,"down":null,"official_source":"Reserve Bank of New Zealand","market_source":"NZFBF / NZOR","curve":[]}
   }
 }

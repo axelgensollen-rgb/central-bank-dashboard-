@@ -1,0 +1,29 @@
+name: Refresh central-bank dashboard
+
+on:
+  workflow_dispatch:
+  schedule:
+    # GitHub cron is UTC. These runs cover Paris 07:05/12:05/18:05 across CET/CEST;
+    # refresh.py exits unless local Europe/Paris time is one of the target slots.
+    - cron: '5 5,6,10,11,16,17 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh verified public data
+        run: python scripts/refresh.py
+      - name: Commit changed data
+        run: |
+          git config user.name "central-bank-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/central-banks.json
+          git diff --cached --quiet || git commit -m "Refresh central bank data"
+          git push

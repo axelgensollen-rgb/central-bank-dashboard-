@@ -18,7 +18,9 @@ if (now.hour, now.minute) not in TARGET and 'GITHUB_ACTIONS' in os.environ:
 CBW_URL = 'https://centralbank.watch/'
 ASX_RBA_URL = 'https://www.asx.com.au/markets/trade-our-derivatives-market/futures-market/rba-rate-tracker'
 RBNZ_OCR_URL = 'https://www.rbnz.govt.nz/monetary-policy/about-monetary-policy/the-official-cash-rate'
-UA = {'User-Agent': 'Mozilla/5.0 (compatible; CentralBankPulse/1.1)'}
+TMX_BOC_URL = 'https://www.m-x.ca/en/trading/tools/canadian-interest-rate-expectations'
+BNZ_RBNZ_MARKET_URL = 'https://www.bnz.co.nz/institutional-banking/research/publications/outlook-for-borrowers'
+UA = {'User-Agent': 'Mozilla/5.0 (compatible; CentralBankPulse/1.2)'}
 
 SECTIONS = [
     ('Federal Reserve', 'FED'),
@@ -30,6 +32,11 @@ SECTIONS = [
     ('Reserve Bank of New Zealand', 'RBNZ'),
     ('Swiss National Bank', 'BNS'),
 ]
+
+MONTHS = {m: i for i, m in enumerate([
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+], 1)}
 
 
 def fetch(url: str) -> str:
@@ -108,6 +115,38 @@ def parse_date_loose(s: str):
     return None
 
 
+def upsert_curve_point(bank: dict, meeting_date: str, rate: float, source: str) -> bool:
+    curve = bank.setdefault('curve', [])
+    point = next((p for p in curve if p.get('date') == meeting_date), None)
+    rate = round(float(rate), 3)
+    if point is None:
+        curve.append({'date': meeting_date, 'rate': rate, 'market_source': source})
+        curve.sort(key=lambda p: p.get('date', '9999-99-99'))
+        return True
+    changed = point.get('rate') != rate or point.get('market_source') != source
+    point['rate'] = rate
+    point['market_source'] = source
+    return changed
+
+
+def interpolate(anchors: list[tuple[date, float]], target: date):
+    anchors = sorted(anchors, key=lambda x: x[0])
+    if not anchors:
+        return None
+    if target <= anchors[0][0]:
+        return anchors[0][1]
+    if target >= anchors[-1][0]:
+        return anchors[-1][1]
+    for (d1, r1), (d2, r2) in zip(anchors, anchors[1:]):
+        if d1 <= target <= d2:
+            span = (d2 - d1).days
+            if span <= 0:
+                return r2
+            w = (target - d1).days / span
+            return r1 + (r2 - r1) * w
+    return None
+
+
 def refresh_asx_rba(data: dict, status: dict) -> list[str]:
     changes = []
     try:
@@ -121,7 +160,6 @@ def refresh_asx_rba(data: dict, status: dict) -> list[str]:
     if not bank:
         return changes
 
-    # Official ASX tracker: next meeting and next-meeting probability.
     dm = re.search(r'next RBA Board meeting.*?will be on the\s+(\d{1,2}(?:st|nd|rd|th)?\s+of\s+[A-Z][a-z]+\s+20\d{2})', text, re.I)
     meeting_date = None
     if dm:
@@ -138,7 +176,6 @@ def refresh_asx_rba(data: dict, status: dict) -> list[str]:
         if merge_meeting(bank, {'date': meeting_date.isoformat(), 'up': up, 'hold': hold, 'down': down}, 'ASX RBA Rate Tracker', ASX_RBA_URL, priority=100):
             changes.append('RBA:probability')
 
-    # Parse the published monthly implied-yield curve where present.
     pairs = re.findall(r'([A-Z][a-z]{2})-(\d{2})\s+\|?\s*([0-9]+(?:\.[0-9]+)?)\s+\|?\s*[0-9]+(?:\.[0-9]+)?', text)
     if pairs:
         month_map = {m: i for i, m in enumerate(['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], 1)}
@@ -157,6 +194,56 @@ def refresh_asx_rba(data: dict, status: dict) -> list[str]:
         if changed_curve:
             changes.append('RBA:curve')
 
+    return changes
+
+
+def refresh_boc_tmx(data: dict, status: dict) -> list[str]:
+    changes = []
+    bank = data.get('banks', {}).get('BoC')
+    if not bank:
+        return changes
+    try:
+        text = visible_text(fetch(TMX_BOC_URL))
+        status['tmx_boc'] = 'checked'
+    except Exception as exc:
+        status['tmx_boc'] = f'unavailable:{type(exc).__name__}'
+        return changes
+
+    coa_block = section(text, 'One Month CORRA Futures (COA)', 'Daily Compounded CORRA Implied by COA Prices')
+    cra_block = section(text, 'Three Month CORRA Futures (CRA)', 'Daily Compounded CORRA Implied by CRA Prices')
+
+    monthly = {}
+    for mon, yr, rate in re.findall(r'(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d{2}).{0,60}?COA[A-Z0-9]+.{0,45}?([0-9]+(?:\.[0-9]+)?)%', coa_block, re.I):
+        monthly[(int(yr), MONTHS[mon.capitalize()])] = float(rate)
+
+    quarter_anchors = []
+    for mon, yr, rate in re.findall(r'(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d{2}).{0,60}?CRA[A-Z0-9]+.{0,45}?([0-9]+(?:\.[0-9]+)?)%', cra_block, re.I):
+        quarter_anchors.append((date(int(yr), MONTHS[mon.capitalize()], 15), float(rate)))
+
+    if not monthly and not quarter_anchors:
+        status['tmx_boc'] = 'checked_no_curve_parse'
+        return changes
+
+    changed = False
+    for ds in bank.get('meeting_calendar', []):
+        try:
+            d = date.fromisoformat(ds)
+        except ValueError:
+            continue
+        if d < today or d.year > 2027:
+            continue
+        rate = monthly.get((d.year, d.month))
+        source = 'TMX 1M CORRA futures'
+        if rate is None:
+            rate = interpolate(quarter_anchors, d)
+            source = 'TMX 3M CORRA futures term structure'
+        if rate is not None:
+            changed |= upsert_curve_point(bank, ds, rate, source)
+
+    if changed:
+        bank['market_source'] = 'TMX Montréal Exchange COA/CRA CORRA futures'
+        bank['method_note'] = 'Near meetings use 1M CORRA futures where available. Longer 2027 points are interpolated from the public 3M CORRA futures term structure; starred probabilities are derived estimates, not exact TMX meeting odds.'
+        changes.append('BoC:curve')
     return changes
 
 
@@ -192,6 +279,45 @@ def refresh_rbnz_official(data: dict, status: dict) -> list[str]:
     return changes
 
 
+def refresh_rbnz_market(data: dict, status: dict) -> list[str]:
+    changes = []
+    bank = data.get('banks', {}).get('RBNZ')
+    if not bank:
+        return changes
+    try:
+        text = visible_text(fetch(BNZ_RBNZ_MARKET_URL))
+        status['bnz_rbnz_market'] = 'checked'
+    except Exception as exc:
+        status['bnz_rbnz_market'] = f'unavailable:{type(exc).__name__}'
+        return changes
+
+    m = re.search(r'Market pricing implies an OCR near\s*([0-9]+(?:\.[0-9]+)?)%\s*by year-end,?\s*rising to around\s*([0-9]+(?:\.[0-9]+)?)%\s*by December 2027', text, re.I)
+    if not m:
+        status['bnz_rbnz_market'] = 'checked_no_anchor_parse'
+        return changes
+
+    end_2026 = float(m.group(1))
+    end_2027 = float(m.group(2))
+    anchors = [(date(2026, 12, 9), end_2026), (date(2027, 12, 8), end_2027)]
+    changed = False
+    for ds in bank.get('meeting_calendar', []):
+        try:
+            d = date.fromisoformat(ds)
+        except ValueError:
+            continue
+        if d < date(2026, 12, 9) or d > date(2027, 12, 8):
+            continue
+        rate = interpolate(anchors, d)
+        if rate is not None:
+            changed |= upsert_curve_point(bank, ds, rate, 'BNZ public OIS market-pricing anchors')
+
+    if changed:
+        bank['market_source'] = 'RBNZ / BNZ public OIS market-pricing anchors'
+        bank['method_note'] = f'Published market pricing anchors are near {end_2026:.1f}% at end-2026 and around {end_2027:.1f}% by Dec-2027. Intermediate 2027 meeting rates are linear interpolation for dashboard continuity; starred probabilities are derived estimates, not exact OIS odds for each meeting.'
+        changes.append('RBNZ:curve')
+    return changes
+
+
 def refresh_cbw(data: dict, status: dict) -> list[str]:
     changes = []
     try:
@@ -209,7 +335,6 @@ def refresh_cbw(data: dict, status: dict) -> list[str]:
         parsed = parse_next_meeting(block)
         if not parsed:
             continue
-        # ASX has priority over CBW for RBA if both provide the same meeting.
         if merge_meeting(data['banks'][key], parsed, 'Central Bank Watch', CBW_URL, priority=50):
             changes.append(f'{key}:probability')
     return changes
@@ -240,7 +365,6 @@ def update_curve_history(data: dict):
         if not curve:
             continue
         snaps = bank.setdefault('curve_snapshots', {})
-        # Seed the previous data timestamp once when possible.
         if not snaps and data.get('updated_at'):
             try:
                 old_day = datetime.fromisoformat(data['updated_at']).date().isoformat()
@@ -266,9 +390,10 @@ data = json.loads(path.read_text(encoding='utf-8'))
 status = {}
 changes = []
 
-# Source priority: official/specialist market sources first, then broad fallback.
 changes += refresh_asx_rba(data, status)
+changes += refresh_boc_tmx(data, status)
 changes += refresh_rbnz_official(data, status)
+changes += refresh_rbnz_market(data, status)
 changes += refresh_cbw(data, status)
 
 update_curve_history(data)
@@ -278,7 +403,9 @@ data['source_status'] = status
 data['probability_sources'] = {
     'broad': {'name': 'Central Bank Watch', 'url': CBW_URL},
     'RBA': {'name': 'ASX RBA Rate Tracker', 'url': ASX_RBA_URL},
+    'BoC': {'name': 'TMX Montréal Exchange CORRA futures', 'url': TMX_BOC_URL},
     'RBNZ_official': {'name': 'Reserve Bank of New Zealand', 'url': RBNZ_OCR_URL},
+    'RBNZ_market': {'name': 'BNZ public OIS market-pricing anchors', 'url': BNZ_RBNZ_MARKET_URL},
 }
 data.pop('refresh_error', None)
 

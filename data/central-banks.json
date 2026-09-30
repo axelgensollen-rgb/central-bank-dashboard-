@@ -1,6 +1,6 @@
 {
   "source": "Hybrid primary-market sources",
-  "updated_at": "2026-09-29T18:12+02:00",
+  "updated_at": "2026-09-30T17:46+02:00",
   "calendar_updated_at": "2026-09-30",
   "banks": {
     "FED": {
@@ -44,10 +44,10 @@
       "next": "2026-10-28",
       "official_source": "Bank of Canada",
       "calendar_source": "Bank of Canada fixed announcement dates",
-      "market_source": "TMX / CORRA futures",
-      "method_note": "Policy path derived from 1M CORRA futures and the current CORRA-target spread.",
+      "market_source": "TMX Montréal Exchange COA/CRA CORRA futures",
+      "method_note": "Near meetings use 1M CORRA futures where available. The 2027 extension is an indicative meeting-date path interpolated from the public 3M CORRA futures term structure; derived probabilities are not exact TMX meeting odds.",
       "meeting_calendar": ["2026-10-28","2026-12-09","2027-01-27","2027-03-03","2027-04-28","2027-06-02","2027-07-21","2027-09-08","2027-10-27","2027-12-08"],
-      "curve": [{"date":"2026-10-28","rate":2.375},{"date":"2026-12-09","rate":2.57}]
+      "curve": [{"date":"2026-10-28","rate":2.31},{"date":"2026-12-09","rate":2.56},{"date":"2027-01-27","rate":2.61},{"date":"2027-03-03","rate":3.105},{"date":"2027-04-28","rate":3.26},{"date":"2027-06-02","rate":3.345},{"date":"2027-07-21","rate":3.44},{"date":"2027-09-08","rate":3.515},{"date":"2027-10-27","rate":3.59},{"date":"2027-12-08","rate":3.63}]
     },
     "RBA": {
       "rate": 4.60,
@@ -73,10 +73,10 @@
       "next": "2026-10-28",
       "official_source": "Reserve Bank of New Zealand",
       "calendar_source": "RBNZ OCR decision calendar",
-      "market_source": "RBNZ public market-pricing + free public prediction-market odds",
-      "method_note": "Exact published odds are kept when available; otherwise the dashboard shows N/D rather than fabricating a probability.",
+      "market_source": "RBNZ / BNZ public OIS market-pricing anchors",
+      "method_note": "Published market pricing anchors are near 3.0% at end-2026 and around 3.6% by Dec-2027. Intermediate 2027 meeting rates are linear interpolation for dashboard continuity; starred probabilities are derived estimates, not exact OIS odds for each meeting.",
       "meeting_calendar": ["2026-10-28","2026-12-09","2027-02-10","2027-03-17","2027-05-05","2027-06-16","2027-08-04","2027-09-15","2027-10-27","2027-12-08"],
-      "curve": [{"date":"2026-10-28","rate":2.955},{"date":"2026-12-09","rate":3.00}],
+      "curve": [{"date":"2026-10-28","rate":2.955},{"date":"2026-12-09","rate":3.00},{"date":"2027-02-10","rate":3.10},{"date":"2027-03-17","rate":3.16},{"date":"2027-05-05","rate":3.24},{"date":"2027-06-16","rate":3.31},{"date":"2027-08-04","rate":3.39},{"date":"2027-09-15","rate":3.46},{"date":"2027-10-27","rate":3.53},{"date":"2027-12-08","rate":3.60}],
       "meetings": [{"date":"2026-10-28","up":81.6,"hold":18.2,"down":0.2,"source":"Free public prediction-market odds"},{"date":"2026-12-09","up":18.0,"hold":82.0,"down":0.0,"source":"Derived from RBNZ-reported year-end market pricing"}]
     }
   }

@@ -1,6 +1,6 @@
 {
   "source": "Hybrid primary-market sources",
-  "updated_at": "2026-10-02T12:59+02:00",
+  "updated_at": "2026-10-02T18:35+02:00",
   "calendar_updated_at": "2026-09-30",
   "history_note": "J-7 and J-30 curves are reconstructed from public historical market-pricing anchors and interpolated where exact meeting-by-meeting historical odds are not freely available. They are shown as derived historical trajectories, not exact exchange snapshots.",
   "banks": {
@@ -74,7 +74,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-02T12:59+02:00"
+          "verified_at": "2026-10-02T18:35+02:00"
         }
       ],
       "curve_snapshots": {
@@ -218,7 +218,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-02T12:59+02:00"
+          "verified_at": "2026-10-02T18:35+02:00"
         }
       ],
       "curve_snapshots": {
@@ -346,7 +346,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-02T12:59+02:00"
+          "verified_at": "2026-10-02T18:35+02:00"
         }
       ],
       "curve_snapshots": {
@@ -474,7 +474,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-02T12:59+02:00"
+          "verified_at": "2026-10-02T18:35+02:00"
         }
       ],
       "curve_snapshots": {
@@ -572,42 +572,42 @@
         },
         {
           "date": "2027-01-27",
-          "rate": 2.57,
+          "rate": 2.575,
           "market_source": "TMX 1M CORRA futures"
         },
         {
           "date": "2027-03-03",
-          "rate": 2.92,
+          "rate": 2.935,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-04-28",
-          "rate": 3.065,
+          "rate": 3.083,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-06-02",
-          "rate": 3.149,
+          "rate": 3.168,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-07-21",
-          "rate": 3.247,
+          "rate": 3.267,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-09-08",
-          "rate": 3.337,
+          "rate": 3.357,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-10-27",
-          "rate": 3.408,
+          "rate": 3.425,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-12-08",
-          "rate": 3.465,
+          "rate": 3.481,
           "market_source": "TMX 3M CORRA futures term structure"
         }
       ],
@@ -669,35 +669,35 @@
           },
           {
             "date": "2027-01-27",
-            "rate": 2.57
+            "rate": 2.575
           },
           {
             "date": "2027-03-03",
-            "rate": 2.92
+            "rate": 2.935
           },
           {
             "date": "2027-04-28",
-            "rate": 3.065
+            "rate": 3.083
           },
           {
             "date": "2027-06-02",
-            "rate": 3.149
+            "rate": 3.168
           },
           {
             "date": "2027-07-21",
-            "rate": 3.247
+            "rate": 3.267
           },
           {
             "date": "2027-09-08",
-            "rate": 3.337
+            "rate": 3.357
           },
           {
             "date": "2027-10-27",
-            "rate": 3.408
+            "rate": 3.425
           },
           {
             "date": "2027-12-08",
-            "rate": 3.465
+            "rate": 3.481
           }
         ]
       }
@@ -777,7 +777,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-02T12:59+02:00"
+          "verified_at": "2026-10-02T18:35+02:00"
         }
       ],
       "curve_snapshots": {
@@ -916,7 +916,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-02T12:59+02:00"
+          "verified_at": "2026-10-02T18:35+02:00"
         }
       ],
       "curve_snapshots": {
@@ -1144,7 +1144,7 @@
       }
     }
   },
-  "last_checked_at": "2026-10-02T12:59+02:00",
+  "last_checked_at": "2026-10-02T18:35+02:00",
   "source_status": {
     "asx_rba": "checked",
     "tmx_boc": "checked",
@@ -1176,13 +1176,6 @@
   },
   "refresh_status": "data_updated",
   "refresh_changes": [
-    "BCE:probability",
-    "BNS:probability",
-    "BoC:curve",
-    "BoE:probability",
-    "BoJ:probability",
-    "FED:probability",
-    "RBA:probability",
-    "RBNZ:curve"
+    "BoC:curve"
   ]
 }

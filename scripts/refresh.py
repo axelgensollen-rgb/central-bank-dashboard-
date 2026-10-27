@@ -12,8 +12,7 @@ TZ = ZoneInfo('Europe/Paris')
 now = datetime.now(TZ)
 today = now.date()
 
-if (now.hour, now.minute) not in TARGET and 'GITHUB_ACTIONS' in os.environ:
-    raise SystemExit('Not a Paris target slot')
+# Scheduling is handled by the workflow, including delayed runs.
 
 CBW_URL = 'https://centralbank.watch/'
 ASX_RBA_URL = 'https://www.asx.com.au/markets/trade-our-derivatives-market/futures-market/rba-rate-tracker'
@@ -98,7 +97,6 @@ def merge_meeting(bank: dict, incoming: dict, source: str, source_url: str, prio
 
     old_priority = int(existing.get('source_priority', 0))
     if old_priority > priority:
-        existing['verified_at'] = now.isoformat(timespec='minutes')
         return False
 
     changed = any(existing.get(k) != payload[k] for k in ('up', 'hold', 'down'))
@@ -321,22 +319,34 @@ def refresh_rbnz_market(data: dict, status: dict) -> list[str]:
 def refresh_cbw(data: dict, status: dict) -> list[str]:
     changes = []
     try:
-        text = visible_text(fetch(CBW_URL))
+        raw_html = fetch(CBW_URL)
+        text = visible_text(raw_html)
         status['central_bank_watch'] = 'checked'
     except Exception as exc:
         status['central_bank_watch'] = f'unavailable:{type(exc).__name__}'
         return changes
 
-    for idx, (heading, key) in enumerate(SECTIONS):
-        next_heading = SECTIONS[idx + 1][0] if idx + 1 < len(SECTIONS) else None
-        block = section(text, heading, next_heading)
-        if not block or key not in data.get('banks', {}):
+    # Stop each card at the next actual heading, regardless of bank order.
+    raw = raw_html
+    cards = re.findall(r'(?is)<h3\b[^>]*>(.*?)</h3>(.*?)(?=<h3\b|$)', raw)
+    blocks = {visible_text(title): visible_text(body) for title, body in cards}
+    for heading, key in SECTIONS:
+        bank = data.get('banks', {}).get(key)
+        if bank is None:
             continue
+        block = blocks.get(heading, '')
         parsed = parse_next_meeting(block)
-        if not parsed:
+        status['cbw_' + key] = 'unavailable_or_unparsed'
+        if not parsed or parsed['date'] < today.isoformat():
             continue
-        if merge_meeting(data['banks'][key], parsed, 'Central Bank Watch', CBW_URL, priority=50):
+        # Only retain probabilities assigned to this exact bank and meeting.
+        bank['meetings'] = [m for m in bank.get('meetings', [])
+                            if m.get('source') != 'Central Bank Watch' or m.get('date') == parsed['date']]
+        if merge_meeting(bank, parsed, 'Central Bank Watch', CBW_URL, priority=50):
             changes.append(f'{key}:probability')
+        bank['next'] = parsed['date']
+        bank['probability_checked_at'] = now.isoformat(timespec='minutes')
+        status['cbw_' + key] = 'parsed'
     return changes
 
 

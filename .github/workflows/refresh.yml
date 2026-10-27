@@ -5,10 +5,17 @@ on:
   schedule:
     # GitHub cron is UTC. Run candidate slots for both CET and CEST.
     # The Paris-hour gate below keeps only 07:xx, 12:xx and 18:xx.
-    - cron: '5 5,6,10,11,16,17 * * *'
+    - cron: '5 5,10,16 * * *'
+    - cron: '5 6,11,17 * * *'
+  push:
+    paths: ['scripts/**', '.github/workflows/refresh.yml']
 
 permissions:
   contents: write
+
+concurrency:
+  group: central-bank-refresh
+  cancel-in-progress: false
 
 jobs:
   refresh:
@@ -21,15 +28,18 @@ jobs:
       - name: Check Paris refresh slot
         id: slot
         run: |
-          HOUR=$(TZ=Europe/Paris date +%H)
-          if [ "$HOUR" = "07" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "18" ]; then
+          OFFSET=$(TZ=Europe/Paris date +%z)
+          if [ "$EVENT_NAME" != "schedule" ] || { [ "$OFFSET" = "+0200" ] && [ "$SCHEDULE" = "5 5,10,16 * * *" ]; } || { [ "$OFFSET" = "+0100" ] && [ "$SCHEDULE" = "5 6,11,17 * * *" ]; }; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
           fi
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
       - name: Refresh verified public data
         if: steps.slot.outputs.run == 'true'
-        run: env -u GITHUB_ACTIONS python scripts/refresh.py
+        run: python scripts/refresh.py
       - name: Commit changed data
         if: steps.slot.outputs.run == 'true'
         run: |

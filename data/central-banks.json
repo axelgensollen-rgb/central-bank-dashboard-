@@ -1,6 +1,6 @@
 {
   "source": "Hybrid primary-market sources",
-  "updated_at": "2026-10-26T18:15+01:00",
+  "updated_at": "2026-10-27T19:09+01:00",
   "calendar_updated_at": "2026-09-30",
   "history_note": "J-7 and J-30 curves are reconstructed from public historical market-pricing anchors and interpolated where exact meeting-by-meeting historical odds are not freely available. They are shown as derived historical trajectories, not exact exchange snapshots.",
   "banks": {
@@ -99,19 +99,56 @@
             "rate": 4.83
           }
         ],
-        "month": []
+        "month": [
+          {
+            "date": "2026-10-28",
+            "rate": 4.04
+          },
+          {
+            "date": "2026-12-09",
+            "rate": 4.25
+          },
+          {
+            "date": "2027-01-27",
+            "rate": 4.4
+          },
+          {
+            "date": "2027-03-17",
+            "rate": 4.57
+          },
+          {
+            "date": "2027-04-28",
+            "rate": 4.67
+          },
+          {
+            "date": "2027-06-09",
+            "rate": 4.77
+          },
+          {
+            "date": "2027-07-28",
+            "rate": 4.81
+          },
+          {
+            "date": "2027-09-15",
+            "rate": 4.85
+          },
+          {
+            "date": "2027-10-27",
+            "rate": 4.83
+          }
+        ]
       },
       "meetings": [
         {
           "date": "2026-10-28",
-          "up": 9.7,
-          "hold": 90.3,
+          "up": 11.9,
+          "hold": 88.1,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-26T18:15+01:00"
+          "verified_at": "2026-10-27T19:09+01:00"
         }
       ],
       "curve_snapshots": {
@@ -380,8 +417,47 @@
             "date": "2027-10-27",
             "rate": 4.83
           }
+        ],
+        "2026-10-27": [
+          {
+            "date": "2026-10-28",
+            "rate": 4.04
+          },
+          {
+            "date": "2026-12-09",
+            "rate": 4.25
+          },
+          {
+            "date": "2027-01-27",
+            "rate": 4.4
+          },
+          {
+            "date": "2027-03-17",
+            "rate": 4.57
+          },
+          {
+            "date": "2027-04-28",
+            "rate": 4.67
+          },
+          {
+            "date": "2027-06-09",
+            "rate": 4.77
+          },
+          {
+            "date": "2027-07-28",
+            "rate": 4.81
+          },
+          {
+            "date": "2027-09-15",
+            "rate": 4.85
+          },
+          {
+            "date": "2027-10-27",
+            "rate": 4.83
+          }
         ]
-      }
+      },
+      "probability_checked_at": "2026-10-27T19:09+01:00"
     },
     "BCE": {
       "rate": 2.5,
@@ -462,19 +538,48 @@
             "rate": 3.45
           }
         ],
-        "month": []
+        "month": [
+          {
+            "date": "2026-10-29",
+            "rate": 2.58
+          },
+          {
+            "date": "2026-12-17",
+            "rate": 2.8
+          },
+          {
+            "date": "2027-02-04",
+            "rate": 2.97
+          },
+          {
+            "date": "2027-03-18",
+            "rate": 3.26
+          },
+          {
+            "date": "2027-04-29",
+            "rate": 3.22
+          },
+          {
+            "date": "2027-06-10",
+            "rate": 3.31
+          },
+          {
+            "date": "2027-07-22",
+            "rate": 3.45
+          }
+        ]
       },
       "meetings": [
         {
           "date": "2026-10-29",
           "up": 0.0,
-          "hold": 98.1,
-          "down": 1.9,
+          "hold": 97.8,
+          "down": 2.2,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-26T18:15+01:00"
+          "verified_at": "2026-10-27T19:09+01:00"
         }
       ],
       "curve_snapshots": {
@@ -687,8 +792,39 @@
             "date": "2027-07-22",
             "rate": 3.45
           }
+        ],
+        "2026-10-27": [
+          {
+            "date": "2026-10-29",
+            "rate": 2.58
+          },
+          {
+            "date": "2026-12-17",
+            "rate": 2.8
+          },
+          {
+            "date": "2027-02-04",
+            "rate": 2.97
+          },
+          {
+            "date": "2027-03-18",
+            "rate": 3.26
+          },
+          {
+            "date": "2027-04-29",
+            "rate": 3.22
+          },
+          {
+            "date": "2027-06-10",
+            "rate": 3.31
+          },
+          {
+            "date": "2027-07-22",
+            "rate": 3.45
+          }
         ]
-      }
+      },
+      "probability_checked_at": "2026-10-27T19:09+01:00"
     },
     "BoE": {
       "rate": 3.75,
@@ -769,19 +905,48 @@
             "rate": 4.84
           }
         ],
-        "month": []
+        "month": [
+          {
+            "date": "2026-11-05",
+            "rate": 3.97
+          },
+          {
+            "date": "2026-12-17",
+            "rate": 4.15
+          },
+          {
+            "date": "2027-02-04",
+            "rate": 4.36
+          },
+          {
+            "date": "2027-03-18",
+            "rate": 4.53
+          },
+          {
+            "date": "2027-04-29",
+            "rate": 4.68
+          },
+          {
+            "date": "2027-06-17",
+            "rate": 4.78
+          },
+          {
+            "date": "2027-07-29",
+            "rate": 4.84
+          }
+        ]
       },
       "meetings": [
         {
           "date": "2026-11-05",
-          "up": 95.3,
-          "hold": 4.7,
+          "up": 95.5,
+          "hold": 4.5,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-26T18:15+01:00"
+          "verified_at": "2026-10-27T19:09+01:00"
         }
       ],
       "curve_snapshots": {
@@ -994,12 +1159,43 @@
             "date": "2027-07-29",
             "rate": 4.84
           }
+        ],
+        "2026-10-27": [
+          {
+            "date": "2026-11-05",
+            "rate": 3.97
+          },
+          {
+            "date": "2026-12-17",
+            "rate": 4.15
+          },
+          {
+            "date": "2027-02-04",
+            "rate": 4.36
+          },
+          {
+            "date": "2027-03-18",
+            "rate": 4.53
+          },
+          {
+            "date": "2027-04-29",
+            "rate": 4.68
+          },
+          {
+            "date": "2027-06-17",
+            "rate": 4.78
+          },
+          {
+            "date": "2027-07-29",
+            "rate": 4.84
+          }
         ]
-      }
+      },
+      "probability_checked_at": "2026-10-27T19:09+01:00"
     },
     "BoJ": {
       "rate": 1.25,
-      "next": "2026-10-30",
+      "next": "2026-10-28",
       "official_source": "Bank of Japan",
       "calendar_source": "Bank of Japan Monetary Policy Meetings",
       "market_source": "JPX / 3M TONA futures",
@@ -1076,19 +1272,48 @@
             "rate": 2.32
           }
         ],
-        "month": []
+        "month": [
+          {
+            "date": "2026-10-30",
+            "rate": 1.74
+          },
+          {
+            "date": "2026-12-18",
+            "rate": 1.74
+          },
+          {
+            "date": "2027-01-22",
+            "rate": 1.79
+          },
+          {
+            "date": "2027-03-18",
+            "rate": 2.0
+          },
+          {
+            "date": "2027-04-28",
+            "rate": 2.0
+          },
+          {
+            "date": "2027-06-11",
+            "rate": 2.0
+          },
+          {
+            "date": "2027-07-22",
+            "rate": 2.32
+          }
+        ]
       },
       "meetings": [
         {
           "date": "2026-10-28",
-          "up": 9.7,
-          "hold": 90.3,
-          "down": 0.0,
+          "up": 0.0,
+          "hold": 85.8,
+          "down": 14.2,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-26T18:15+01:00"
+          "verified_at": "2026-10-27T19:09+01:00"
         }
       ],
       "curve_snapshots": {
@@ -1301,8 +1526,39 @@
             "date": "2027-07-22",
             "rate": 2.32
           }
+        ],
+        "2026-10-27": [
+          {
+            "date": "2026-10-30",
+            "rate": 1.74
+          },
+          {
+            "date": "2026-12-18",
+            "rate": 1.74
+          },
+          {
+            "date": "2027-01-22",
+            "rate": 1.79
+          },
+          {
+            "date": "2027-03-18",
+            "rate": 2.0
+          },
+          {
+            "date": "2027-04-28",
+            "rate": 2.0
+          },
+          {
+            "date": "2027-06-11",
+            "rate": 2.0
+          },
+          {
+            "date": "2027-07-22",
+            "rate": 2.32
+          }
         ]
-      }
+      },
+      "probability_checked_at": "2026-10-27T19:09+01:00"
     },
     "BoC": {
       "rate": 2.25,
@@ -1326,52 +1582,52 @@
       "curve": [
         {
           "date": "2026-10-28",
-          "rate": 2.295,
+          "rate": 2.292,
           "market_source": "TMX 1M CORRA futures"
         },
         {
           "date": "2026-12-09",
-          "rate": 2.575,
+          "rate": 2.57,
           "market_source": "TMX 1M CORRA futures"
         },
         {
           "date": "2027-01-27",
-          "rate": 2.635,
+          "rate": 2.64,
           "market_source": "TMX 1M CORRA futures"
         },
         {
           "date": "2027-03-03",
-          "rate": 2.963,
+          "rate": 2.958,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-04-28",
-          "rate": 3.1,
+          "rate": 3.095,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-06-02",
-          "rate": 3.18,
+          "rate": 3.175,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-07-21",
-          "rate": 3.271,
+          "rate": 3.264,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-09-08",
-          "rate": 3.353,
+          "rate": 3.344,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-10-27",
-          "rate": 3.413,
+          "rate": 3.406,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-12-08",
-          "rate": 3.462,
+          "rate": 3.457,
           "market_source": "TMX 3M CORRA futures term structure"
         }
       ],
@@ -1418,7 +1674,48 @@
             "rate": 3.402
           }
         ],
-        "month": []
+        "month": [
+          {
+            "date": "2026-10-28",
+            "rate": 2.297
+          },
+          {
+            "date": "2026-12-09",
+            "rate": 2.51
+          },
+          {
+            "date": "2027-01-27",
+            "rate": 2.57
+          },
+          {
+            "date": "2027-03-03",
+            "rate": 2.92
+          },
+          {
+            "date": "2027-04-28",
+            "rate": 3.065
+          },
+          {
+            "date": "2027-06-02",
+            "rate": 3.149
+          },
+          {
+            "date": "2027-07-21",
+            "rate": 3.247
+          },
+          {
+            "date": "2027-09-08",
+            "rate": 3.337
+          },
+          {
+            "date": "2027-10-27",
+            "rate": 3.408
+          },
+          {
+            "date": "2027-12-08",
+            "rate": 3.465
+          }
+        ]
       },
       "curve_snapshots": {
         "2026-09-30": [
@@ -1714,6 +2011,48 @@
             "date": "2027-12-08",
             "rate": 3.462
           }
+        ],
+        "2026-10-27": [
+          {
+            "date": "2026-10-28",
+            "rate": 2.292
+          },
+          {
+            "date": "2026-12-09",
+            "rate": 2.57
+          },
+          {
+            "date": "2027-01-27",
+            "rate": 2.64
+          },
+          {
+            "date": "2027-03-03",
+            "rate": 2.958
+          },
+          {
+            "date": "2027-04-28",
+            "rate": 3.095
+          },
+          {
+            "date": "2027-06-02",
+            "rate": 3.175
+          },
+          {
+            "date": "2027-07-21",
+            "rate": 3.264
+          },
+          {
+            "date": "2027-09-08",
+            "rate": 3.344
+          },
+          {
+            "date": "2027-10-27",
+            "rate": 3.406
+          },
+          {
+            "date": "2027-12-08",
+            "rate": 3.457
+          }
         ]
       }
     },
@@ -1821,19 +2160,60 @@
             "rate": 5.005
           }
         ],
-        "month": []
+        "month": [
+          {
+            "date": "2026-11-03",
+            "rate": 4.695
+          },
+          {
+            "date": "2026-12-08",
+            "rate": 4.745
+          },
+          {
+            "date": "2027-02-09",
+            "rate": 4.825
+          },
+          {
+            "date": "2027-03-23",
+            "rate": 4.88
+          },
+          {
+            "date": "2027-05-04",
+            "rate": 4.99
+          },
+          {
+            "date": "2027-06-22",
+            "rate": 5.005
+          },
+          {
+            "date": "2027-08-10",
+            "rate": 5.02
+          },
+          {
+            "date": "2027-09-28",
+            "rate": 5.02
+          },
+          {
+            "date": "2027-11-02",
+            "rate": 5.015
+          },
+          {
+            "date": "2027-12-14",
+            "rate": 5.005
+          }
+        ]
       },
       "meetings": [
         {
           "date": "2026-11-03",
-          "up": 53.6,
-          "hold": 46.4,
+          "up": 60.0,
+          "hold": 40.0,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-26T18:15+01:00"
+          "verified_at": "2026-10-27T19:09+01:00"
         }
       ],
       "curve_snapshots": {
@@ -2130,8 +2510,51 @@
             "date": "2027-12-14",
             "rate": 5.005
           }
+        ],
+        "2026-10-27": [
+          {
+            "date": "2026-11-03",
+            "rate": 4.695
+          },
+          {
+            "date": "2026-12-08",
+            "rate": 4.745
+          },
+          {
+            "date": "2027-02-09",
+            "rate": 4.825
+          },
+          {
+            "date": "2027-03-23",
+            "rate": 4.88
+          },
+          {
+            "date": "2027-05-04",
+            "rate": 4.99
+          },
+          {
+            "date": "2027-06-22",
+            "rate": 5.005
+          },
+          {
+            "date": "2027-08-10",
+            "rate": 5.02
+          },
+          {
+            "date": "2027-09-28",
+            "rate": 5.02
+          },
+          {
+            "date": "2027-11-02",
+            "rate": 5.015
+          },
+          {
+            "date": "2027-12-14",
+            "rate": 5.005
+          }
         ]
-      }
+      },
+      "probability_checked_at": "2026-10-27T19:09+01:00"
     },
     "BNS": {
       "rate": 0.0,
@@ -2191,19 +2614,40 @@
             "rate": 0.85
           }
         ],
-        "month": []
+        "month": [
+          {
+            "date": "2026-12-10",
+            "rate": 0.1
+          },
+          {
+            "date": "2027-03-18",
+            "rate": 0.32
+          },
+          {
+            "date": "2027-06-24",
+            "rate": 0.57
+          },
+          {
+            "date": "2027-09-23",
+            "rate": 0.75
+          },
+          {
+            "date": "2027-12-16",
+            "rate": 0.85
+          }
+        ]
       },
       "meetings": [
         {
-          "date": "2026-10-28",
-          "up": 9.7,
-          "hold": 90.3,
+          "date": "2026-12-10",
+          "up": 12.2,
+          "hold": 87.8,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-10-26T18:15+01:00"
+          "verified_at": "2026-10-27T19:09+01:00"
         }
       ],
       "curve_snapshots": {
@@ -2360,8 +2804,31 @@
             "date": "2027-12-16",
             "rate": 0.85
           }
+        ],
+        "2026-10-27": [
+          {
+            "date": "2026-12-10",
+            "rate": 0.1
+          },
+          {
+            "date": "2027-03-18",
+            "rate": 0.32
+          },
+          {
+            "date": "2027-06-24",
+            "rate": 0.57
+          },
+          {
+            "date": "2027-09-23",
+            "rate": 0.75
+          },
+          {
+            "date": "2027-12-16",
+            "rate": 0.85
+          }
         ]
-      }
+      },
+      "probability_checked_at": "2026-10-27T19:09+01:00"
     },
     "RBNZ": {
       "rate": 2.75,
@@ -2476,7 +2943,48 @@
             "rate": 3.6
           }
         ],
-        "month": []
+        "month": [
+          {
+            "date": "2026-10-28",
+            "rate": 2.955
+          },
+          {
+            "date": "2026-12-09",
+            "rate": 3.0
+          },
+          {
+            "date": "2027-02-10",
+            "rate": 3.104
+          },
+          {
+            "date": "2027-03-17",
+            "rate": 3.162
+          },
+          {
+            "date": "2027-05-05",
+            "rate": 3.242
+          },
+          {
+            "date": "2027-06-16",
+            "rate": 3.312
+          },
+          {
+            "date": "2027-08-04",
+            "rate": 3.392
+          },
+          {
+            "date": "2027-09-15",
+            "rate": 3.462
+          },
+          {
+            "date": "2027-10-27",
+            "rate": 3.531
+          },
+          {
+            "date": "2027-12-08",
+            "rate": 3.6
+          }
+        ]
       },
       "meetings": [
         {
@@ -2788,17 +3296,67 @@
             "date": "2027-12-08",
             "rate": 3.6
           }
+        ],
+        "2026-10-27": [
+          {
+            "date": "2026-10-28",
+            "rate": 2.955
+          },
+          {
+            "date": "2026-12-09",
+            "rate": 3.0
+          },
+          {
+            "date": "2027-02-10",
+            "rate": 3.104
+          },
+          {
+            "date": "2027-03-17",
+            "rate": 3.162
+          },
+          {
+            "date": "2027-05-05",
+            "rate": 3.242
+          },
+          {
+            "date": "2027-06-16",
+            "rate": 3.312
+          },
+          {
+            "date": "2027-08-04",
+            "rate": 3.392
+          },
+          {
+            "date": "2027-09-15",
+            "rate": 3.462
+          },
+          {
+            "date": "2027-10-27",
+            "rate": 3.531
+          },
+          {
+            "date": "2027-12-08",
+            "rate": 3.6
+          }
         ]
       }
     }
   },
-  "last_checked_at": "2026-10-26T18:15+01:00",
+  "last_checked_at": "2026-10-27T19:09+01:00",
   "source_status": {
     "asx_rba": "checked",
     "tmx_boc": "checked",
     "rbnz_official": "unavailable:HTTPError",
     "bnz_rbnz_market": "checked",
-    "central_bank_watch": "checked"
+    "central_bank_watch": "checked",
+    "cbw_FED": "parsed",
+    "cbw_BCE": "parsed",
+    "cbw_BoE": "parsed",
+    "cbw_BoJ": "parsed",
+    "cbw_BoC": "unavailable_or_unparsed",
+    "cbw_RBA": "parsed",
+    "cbw_RBNZ": "unavailable_or_unparsed",
+    "cbw_BNS": "parsed"
   },
   "probability_sources": {
     "broad": {

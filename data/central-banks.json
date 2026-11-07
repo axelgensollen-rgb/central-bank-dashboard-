@@ -148,7 +148,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-07T13:46+01:00"
+          "verified_at": "2026-11-07T21:44+01:00"
         }
       ],
       "curve_snapshots": {
@@ -875,7 +875,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-07T13:46+01:00"
+      "probability_checked_at": "2026-11-07T21:44+01:00"
     },
     "BCE": {
       "rate": 2.5,
@@ -997,7 +997,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-07T13:46+01:00"
+          "verified_at": "2026-11-07T21:44+01:00"
         }
       ],
       "curve_snapshots": {
@@ -1572,7 +1572,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-07T13:46+01:00"
+      "probability_checked_at": "2026-11-07T21:44+01:00"
     },
     "BoE": {
       "rate": 3.75,
@@ -1694,7 +1694,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-07T13:46+01:00"
+          "verified_at": "2026-11-07T21:44+01:00"
         }
       ],
       "curve_snapshots": {
@@ -2269,7 +2269,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-07T13:46+01:00"
+      "probability_checked_at": "2026-11-07T21:44+01:00"
     },
     "BoJ": {
       "rate": 1.25,
@@ -2391,7 +2391,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-07T13:46+01:00"
+          "verified_at": "2026-11-07T21:44+01:00"
         }
       ],
       "curve_snapshots": {
@@ -2966,7 +2966,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-07T13:46+01:00"
+      "probability_checked_at": "2026-11-07T21:44+01:00"
     },
     "BoC": {
       "rate": 2.25,
@@ -4083,7 +4083,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-07T13:46+01:00"
+          "verified_at": "2026-11-07T21:44+01:00"
         }
       ],
       "curve_snapshots": {
@@ -4886,7 +4886,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-07T13:46+01:00"
+      "probability_checked_at": "2026-11-07T21:44+01:00"
     },
     "BNS": {
       "rate": 0.0,
@@ -4979,7 +4979,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-07T13:46+01:00"
+          "verified_at": "2026-11-07T21:44+01:00"
         }
       ],
       "curve_snapshots": {
@@ -5402,7 +5402,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-07T13:46+01:00"
+      "probability_checked_at": "2026-11-07T21:44+01:00"
     },
     "RBNZ": {
       "rate": 2.75,
@@ -6378,7 +6378,7 @@
       }
     }
   },
-  "last_checked_at": "2026-11-07T13:46+01:00",
+  "last_checked_at": "2026-11-07T21:44+01:00",
   "source_status": {
     "asx_rba": "checked",
     "tmx_boc": "checked",
@@ -6416,10 +6416,6 @@
       "url": "https://www.bnz.co.nz/institutional-banking/research/publications/outlook-for-borrowers"
     }
   },
-  "refresh_status": "data_updated",
-  "refresh_changes": [
-    "BoJ:probability",
-    "FED:probability",
-    "RBA:probability"
-  ]
+  "refresh_status": "checked_no_change",
+  "refresh_changes": []
 }

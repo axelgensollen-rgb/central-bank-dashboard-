@@ -1,6 +1,6 @@
 {
   "source": "Hybrid primary-market sources",
-  "updated_at": "2026-11-11T14:55+01:00",
+  "updated_at": "2026-11-12T15:56+01:00",
   "calendar_updated_at": "2026-09-30",
   "history_note": "J-7 and J-30 curves are reconstructed from public historical market-pricing anchors and interpolated where exact meeting-by-meeting historical odds are not freely available. They are shown as derived historical trajectories, not exact exchange snapshots.",
   "banks": {
@@ -148,7 +148,7 @@
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-12T00:23+01:00"
+          "verified_at": "2026-11-12T15:56+01:00"
         }
       ],
       "curve_snapshots": {
@@ -1065,7 +1065,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-12T00:23+01:00"
+      "probability_checked_at": "2026-11-12T15:56+01:00"
     },
     "BCE": {
       "rate": 2.5,
@@ -1180,14 +1180,14 @@
       "meetings": [
         {
           "date": "2026-12-17",
-          "up": 86.4,
-          "hold": 13.6,
+          "up": 88.0,
+          "hold": 12.0,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-12T00:23+01:00"
+          "verified_at": "2026-11-12T15:56+01:00"
         }
       ],
       "curve_snapshots": {
@@ -1912,7 +1912,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-12T00:23+01:00"
+      "probability_checked_at": "2026-11-12T15:56+01:00"
     },
     "BoE": {
       "rate": 3.75,
@@ -2027,14 +2027,14 @@
       "meetings": [
         {
           "date": "2026-12-17",
-          "up": 68.2,
-          "hold": 31.8,
+          "up": 70.4,
+          "hold": 29.7,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-12T00:23+01:00"
+          "verified_at": "2026-11-12T15:56+01:00"
         }
       ],
       "curve_snapshots": {
@@ -2759,7 +2759,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-12T00:23+01:00"
+      "probability_checked_at": "2026-11-12T15:56+01:00"
     },
     "BoJ": {
       "rate": 1.25,
@@ -2874,14 +2874,14 @@
       "meetings": [
         {
           "date": "2026-12-17",
-          "up": 53.0,
-          "hold": 47.0,
+          "up": 57.1,
+          "hold": 42.9,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-12T00:23+01:00"
+          "verified_at": "2026-11-12T15:56+01:00"
         }
       ],
       "curve_snapshots": {
@@ -3606,7 +3606,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-12T00:23+01:00"
+      "probability_checked_at": "2026-11-12T15:56+01:00"
     },
     "BoC": {
       "rate": 2.25,
@@ -3645,37 +3645,37 @@
         },
         {
           "date": "2027-03-03",
-          "rate": 2.934,
+          "rate": 2.954,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-04-28",
-          "rate": 3.03,
+          "rate": 3.059,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-06-02",
-          "rate": 3.081,
+          "rate": 3.118,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-07-21",
-          "rate": 3.141,
+          "rate": 3.183,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
           "date": "2027-09-08",
-          "rate": 3.197,
-          "market_source": "TMX 3M CORRA futures term structure"
-        },
-        {
-          "date": "2027-10-27",
           "rate": 3.242,
           "market_source": "TMX 3M CORRA futures term structure"
         },
         {
+          "date": "2027-10-27",
+          "rate": 3.285,
+          "market_source": "TMX 3M CORRA futures term structure"
+        },
+        {
           "date": "2027-12-08",
-          "rate": 3.279,
+          "rate": 3.319,
           "market_source": "TMX 3M CORRA futures term structure"
         }
       ],
@@ -4747,31 +4747,31 @@
           },
           {
             "date": "2027-03-03",
-            "rate": 2.934
+            "rate": 2.954
           },
           {
             "date": "2027-04-28",
-            "rate": 3.03
+            "rate": 3.059
           },
           {
             "date": "2027-06-02",
-            "rate": 3.081
+            "rate": 3.118
           },
           {
             "date": "2027-07-21",
-            "rate": 3.141
+            "rate": 3.183
           },
           {
             "date": "2027-09-08",
-            "rate": 3.197
-          },
-          {
-            "date": "2027-10-27",
             "rate": 3.242
           },
           {
+            "date": "2027-10-27",
+            "rate": 3.285
+          },
+          {
             "date": "2027-12-08",
-            "rate": 3.279
+            "rate": 3.319
           }
         ]
       }
@@ -4926,14 +4926,14 @@
       "meetings": [
         {
           "date": "2026-12-08",
-          "up": 0.0,
-          "hold": 100.0,
+          "up": 2.6,
+          "hold": 97.4,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-12T00:23+01:00"
+          "verified_at": "2026-11-12T15:56+01:00"
         }
       ],
       "curve_snapshots": {
@@ -5946,7 +5946,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-12T00:23+01:00"
+      "probability_checked_at": "2026-11-12T15:56+01:00"
     },
     "BNS": {
       "rate": 0.0,
@@ -6032,14 +6032,14 @@
       "meetings": [
         {
           "date": "2026-12-10",
-          "up": 12.3,
-          "hold": 87.7,
+          "up": 12.2,
+          "hold": 87.8,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-12T00:23+01:00"
+          "verified_at": "2026-11-12T15:56+01:00"
         }
       ],
       "curve_snapshots": {
@@ -6572,7 +6572,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-12T00:23+01:00"
+      "probability_checked_at": "2026-11-12T15:56+01:00"
     },
     "RBNZ": {
       "rate": 2.75,
@@ -7758,7 +7758,7 @@
       }
     }
   },
-  "last_checked_at": "2026-11-12T00:23+01:00",
+  "last_checked_at": "2026-11-12T15:56+01:00",
   "source_status": {
     "asx_rba": "checked",
     "tmx_boc": "checked",
@@ -7796,6 +7796,13 @@
       "url": "https://www.bnz.co.nz/institutional-banking/research/publications/outlook-for-borrowers"
     }
   },
-  "refresh_status": "checked_no_change",
-  "refresh_changes": []
+  "refresh_status": "data_updated",
+  "refresh_changes": [
+    "BCE:probability",
+    "BNS:probability",
+    "BoC:curve",
+    "BoE:probability",
+    "BoJ:probability",
+    "RBA:probability"
+  ]
 }

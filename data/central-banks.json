@@ -1,6 +1,6 @@
 {
   "source": "Hybrid primary-market sources",
-  "updated_at": "2026-11-21T00:00+01:00",
+  "updated_at": "2026-11-21T15:28+01:00",
   "calendar_updated_at": "2026-09-30",
   "history_note": "J-7 and J-30 curves are reconstructed from public historical market-pricing anchors and interpolated where exact meeting-by-meeting historical odds are not freely available. They are shown as derived historical trajectories, not exact exchange snapshots.",
   "banks": {
@@ -141,14 +141,14 @@
       "meetings": [
         {
           "date": "2026-12-09",
-          "up": 100.0,
-          "hold": 0.0,
+          "up": 86.3,
+          "hold": 13.7,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-21T00:00+01:00"
+          "verified_at": "2026-11-21T15:28+01:00"
         }
       ],
       "curve_snapshots": {
@@ -1293,7 +1293,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-21T00:00+01:00"
+      "probability_checked_at": "2026-11-21T15:28+01:00"
     },
     "BCE": {
       "rate": 2.5,
@@ -1408,14 +1408,14 @@
       "meetings": [
         {
           "date": "2026-12-17",
-          "up": 88.1,
-          "hold": 11.9,
+          "up": 86.9,
+          "hold": 13.1,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-21T00:00+01:00"
+          "verified_at": "2026-11-21T15:28+01:00"
         }
       ],
       "curve_snapshots": {
@@ -2320,7 +2320,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-21T00:00+01:00"
+      "probability_checked_at": "2026-11-21T15:28+01:00"
     },
     "BoE": {
       "rate": 3.75,
@@ -2435,14 +2435,14 @@
       "meetings": [
         {
           "date": "2026-12-17",
-          "up": 78.6,
-          "hold": 21.5,
+          "up": 76.2,
+          "hold": 23.8,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-21T00:00+01:00"
+          "verified_at": "2026-11-21T15:28+01:00"
         }
       ],
       "curve_snapshots": {
@@ -3347,7 +3347,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-21T00:00+01:00"
+      "probability_checked_at": "2026-11-21T15:28+01:00"
     },
     "BoJ": {
       "rate": 1.25,
@@ -3462,14 +3462,14 @@
       "meetings": [
         {
           "date": "2026-12-17",
-          "up": 58.0,
-          "hold": 42.0,
+          "up": 51.7,
+          "hold": 48.3,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-21T00:00+01:00"
+          "verified_at": "2026-11-21T15:28+01:00"
         }
       ],
       "curve_snapshots": {
@@ -4374,7 +4374,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-21T00:00+01:00"
+      "probability_checked_at": "2026-11-21T15:28+01:00"
     },
     "BoC": {
       "rate": 2.25,
@@ -5947,13 +5947,13 @@
         {
           "date": "2026-12-08",
           "up": 0.0,
-          "hold": 97.4,
-          "down": 2.6,
+          "hold": 94.8,
+          "down": 5.2,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-21T00:00+01:00"
+          "verified_at": "2026-11-21T15:28+01:00"
         }
       ],
       "curve_snapshots": {
@@ -7218,7 +7218,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-21T00:00+01:00"
+      "probability_checked_at": "2026-11-21T15:28+01:00"
     },
     "BNS": {
       "rate": 0.0,
@@ -7304,14 +7304,14 @@
       "meetings": [
         {
           "date": "2026-12-10",
-          "up": 18.3,
-          "hold": 81.7,
+          "up": 12.4,
+          "hold": 87.6,
           "down": 0.0,
           "source": "Central Bank Watch",
           "source_url": "https://centralbank.watch/",
           "probability_type": "next_meeting",
           "source_priority": 50,
-          "verified_at": "2026-11-21T00:00+01:00"
+          "verified_at": "2026-11-21T15:28+01:00"
         }
       ],
       "curve_snapshots": {
@@ -7976,7 +7976,7 @@
           }
         ]
       },
-      "probability_checked_at": "2026-11-21T00:00+01:00"
+      "probability_checked_at": "2026-11-21T15:28+01:00"
     },
     "RBNZ": {
       "rate": 2.75,
@@ -9414,7 +9414,7 @@
       }
     }
   },
-  "last_checked_at": "2026-11-21T00:00+01:00",
+  "last_checked_at": "2026-11-21T15:28+01:00",
   "source_status": {
     "asx_rba": "checked",
     "tmx_boc": "checked",
@@ -9454,6 +9454,11 @@
   },
   "refresh_status": "data_updated",
   "refresh_changes": [
-    "BoC:curve"
+    "BCE:probability",
+    "BNS:probability",
+    "BoE:probability",
+    "BoJ:probability",
+    "FED:probability",
+    "RBA:probability"
   ]
 }
